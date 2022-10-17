@@ -1,24 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
-
-        System.out.println("HW 12.10.22 Arrays Part 2");
-
-        // Task 1
-        //Первым делом бухгалтеры попросили посчитать сумму всех выплат за месяц.
-        //
-        //Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
-        //
-        //в формате: «Сумма трат за месяц составила … рублей».
-
-        int sum = 0;
-        int[] arr = genereateRandomeArray();
-        for (int value : arr) {
-            sum += value;
-        }
-        System.out.println(" Сумма трат за месяц составила - " + sum + " рублей ");
-    }
-
-    public static int[] genereateRandomeArray() {
+    public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
         int[] arr = new int[30];
         for (int i = 0; i < arr.length; i++) {
@@ -26,68 +7,74 @@ public class Main {
         }
         return arr;
     }
+        public static void main(String[] args)
 
-    // Task 2
-    // Следующая задача — найти минимальную и максимальную трату за день.
-    //
-    //Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
-    //
-    //в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
+        // Task 1
+        //Первым делом бухгалтеры попросили посчитать сумму всех выплат за месяц.
+        //Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
+        //в формате: «Сумма трат за месяц составила … рублей».
 
-    public static int[] generateRandomeArray() {
-
-    int[] arr = generateRandomeArray();
-    int min = arr[0];
-    int max = arr[0];
-        for(
-    int element :arr)
-
-    {
-        if (element < min) {
-            min = element;
-        } else if (element > max) {
-            max = element;
-        }
-    }
-        System.out.println(" Минимальные затраты за день: "+min);
-        System.out.println(" Максимальные затраты за день: "+max);
+        {
+            int[] totalSum = generateRandomArray();
+            int sum = 0;
+            for (int value : totalSum) {
+                sum += value;
+            }
+            System.out.println(" Сумма трат за месяц составила " + sum + " рублей ");
 
 
 
-    // Task 3
-    // А теперь нам нужно понять, какую в среднем сумму наша компания тратила в течение данных 30 дней.
-    //Нужно написать программу, которая посчитает среднее значение трат за месяц
-    // (то есть сумму всех трат за месяц поделить на количество дней), и вывести в консоль результат в формате:
-    // «Средняя сумма трат за месяц составила … рублей».
 
-    int sum = 0;
-    generateRandomeArray();
-        for(
-    int value :arr)
+                // Task 2
+                // Следующая задача — найти минимальную и максимальную трату за день.
+                //Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
+                //в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
 
-    {
-        sum += value;
-    }
-        System.out.println(" Сумма трат за месяц: "+sum);
+                int min = totalSum[0];
+                for (int i = 0; i < totalSum.length; i++) {
+                    if (totalSum[i] < min) {
+                        min = totalSum[i];
+                    }
+                }
+                System.out.println("Минимальная выплата за месяц составила " + min);
 
 
-    // Task 4
-    // Напишите код, который в случае такого бага будет выводить Ф. И. О. сотрудников в корректном виде.
-    // В качестве данных для массива используйте:
-    //char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-    //В результате в консоль должно быть выведено "Ivanov Ivan".
+                int max = totalSum[0];
+                for(int i= 0; i<totalSum.length;i++){
+                    if (max<totalSum[i]){
+                        max=totalSum[i];
+                    }
+                }
+                System.out.println("Максимальная сумма выплат за месяц составила " + max);
 
 
-    char[] fixName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for(
-    int i = fixName.length - 1;
-    i >=0;i--)
+                // Task 3
+                // А теперь нам нужно понять, какую в среднем сумму наша компания тратила в течение данных 30 дней.
+                //Нужно написать программу, которая посчитает среднее значение трат за месяц
+                // (то есть сумму всех трат за месяц поделить на количество дней), и вывести в консоль результат в формате:
+                // «Средняя сумма трат за месяц составила … рублей».
 
-    {
-        System.out.print(fixName[i]);
-    }
-        return arr;
-    }}
+                int days = 30;
+                int averageSum = sum / days;
+                int off = sum % days;
+                System.out.println("Средняя сумма выплат за месяц составляет " + averageSum + "," + off + " рублей ");
+                System.out.println();
+
+
+                // Task 4
+                // Напишите код, который в случае такого бага будет выводить Ф. И. О. сотрудников в корректном виде.
+                // В качестве данных для массива используйте:
+                //char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+                //В результате в консоль должно быть выведено "Ivanov Ivan".
+
+                {
+                    char[] fixName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+
+                    for (int i = fixName.length - 1; i >= 0; i--) {
+                        System.out.print(fixName[i]);
+                    }
+                }
+            }}
 
 
 
